@@ -1,0 +1,7 @@
+module Components
+SerialCube_PageHeader 1.0 SerialCube_PageHeader.qml
+SerialCube_Placeholder 1.0 SerialCube_Placeholder.qml
+SerialCube_CardItem 1.0 SerialCube_CardItem.qml
+SerialCube_SettingsRow 1.0 SerialCube_SettingsRow.qml
+SerialCube_InfoRow 1.0 SerialCube_InfoRow.qml
+SerialCube_NavToggleHelper 1.0 SerialCube_NavToggleHelper.qml

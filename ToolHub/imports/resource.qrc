@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ToolHub/i18n/ToolHub_en_US.qm</file>
+        <file>ToolHub/i18n/ToolHub_zh_CN.qm</file>
+        <file>ToolHub/image/logo.ico</file>
+        <file>ToolHub/image/bg_home_header.png</file>
+        <file>ToolHub/qml/App.qml</file>
+        <file>ToolHub/qml/main.qml</file>
+        <file>ToolHub/qml/global/NavModel.qml</file>
+        <file>ToolHub/qml/global/NavFooter.qml</file>
+        <file>ToolHub/qml/global/Settings.qml</file>
+        <file>ToolHub/qml/global/qmldir</file>
+        <file>ToolHub/qml/Components/qmldir</file>
+        <file>ToolHub/qml/Components/SerialCube_PageHeader.qml</file>
+        <file>ToolHub/qml/Components/SerialCube_Placeholder.qml</file>
+        <file>ToolHub/qml/Components/SerialCube_CardItem.qml</file>
+        <file>ToolHub/qml/Components/SerialCube_SettingsRow.qml</file>
+        <file>ToolHub/qml/Components/SerialCube_InfoRow.qml</file>
+        <file>ToolHub/qml/Components/SerialCube_NavToggleHelper.qml</file>
+        <file>ToolHub/qml/page/T_Home.qml</file>
+        <file>ToolHub/qml/page/T_Settings.qml</file>
+        <file>ToolHub/qml/page/T_About.qml</file>
+        <file>ToolHub/qml/page/T_Serial.qml</file>
+        <file>ToolHub/qml/page/T_Network.qml</file>
+        <file>ToolHub/qml/page/T_File.qml</file>
+        <file>ToolHub/qml/page/T_Data.qml</file>
+    </qresource>
+</RCC>
