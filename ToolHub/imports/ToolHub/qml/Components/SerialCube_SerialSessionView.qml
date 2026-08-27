@@ -321,6 +321,34 @@ Item {
                                 }
                             }
                             SerialCube_SettingsRow {
+                                label: qsTr("日志字号")
+                                mode: "narrow"
+                                Layout.fillWidth: true
+                                Layout.preferredHeight: 40
+                                RowLayout {
+                                    width: parent.width
+                                    spacing: 8
+                                    FluButton {
+                                        Layout.preferredWidth: 52
+                                        text: "A-"
+                                        onClicked: sessionView.logFontPx = Math.max(sessionView.logFontPx - 1, 10)
+                                        FluTooltip { visible: parent.hovered; text: qsTr("缩小字体") }
+                                    }
+                                    FluButton {
+                                        Layout.preferredWidth: 60
+                                        text: sessionView.logFontPx + ""
+                                        onClicked: sessionView.logFontPx = sessionView.defaultLogFontPx
+                                        FluTooltip { visible: parent.hovered; text: qsTr("当前字号，点击恢复默认 %1").arg(sessionView.defaultLogFontPx) }
+                                    }
+                                    FluButton {
+                                        Layout.preferredWidth: 52
+                                        text: "A+"
+                                        onClicked: sessionView.logFontPx = Math.min(sessionView.logFontPx + 1, 28)
+                                        FluTooltip { visible: parent.hovered; text: qsTr("放大字体") }
+                                    }
+                                }
+                            }
+                            SerialCube_SettingsRow {
                                 label: qsTr("冻结显示")
                                 mode: "narrow"
                                 Layout.fillWidth: true
@@ -332,7 +360,6 @@ Item {
                             RowLayout {
                                 Layout.fillWidth: true
                                 Layout.margins: 8
-                                spacing: 8
                                 FluButton {
                                     Layout.fillWidth: true
                                     text: qsTr("保存")
@@ -340,11 +367,6 @@ Item {
                                         sessionView.log.save("")
                                         showSuccess(qsTr("日志已保存到 Downloads 目录"))
                                     }
-                                }
-                                FluButton {
-                                    Layout.fillWidth: true
-                                    text: qsTr("清空")
-                                    onClicked: sessionView.log.clear()
                                 }
                             }
                         }
@@ -450,21 +472,10 @@ Item {
                             FluText { text: "← " + qsTr("收"); font: FluTextStyle.Body; color: FluColors.Green.normal }
                             FluText { text: "→ " + qsTr("发"); font: FluTextStyle.Body; color: FluTheme.primaryColor }
                             Item { Layout.fillWidth: true }
-                            FluButton {
-                                text: "A-"
-                                onClicked: sessionView.logFontPx = Math.max(sessionView.logFontPx - 1, 10)
-                                FluTooltip { visible: parent.hovered; text: qsTr("缩小字体") }
-                            }
-                            FluButton {
-                                Layout.preferredWidth: 52
-                                text: sessionView.logFontPx + ""
-                                onClicked: sessionView.logFontPx = sessionView.defaultLogFontPx
-                                FluTooltip { visible: parent.hovered; text: qsTr("当前字号，点击恢复默认 %1").arg(sessionView.defaultLogFontPx) }
-                            }
-                            FluButton {
-                                text: "A+"
-                                onClicked: sessionView.logFontPx = Math.min(sessionView.logFontPx + 1, 28)
-                                FluTooltip { visible: parent.hovered; text: qsTr("放大字体") }
+                            FluFilledButton {
+                                text: qsTr("清空")
+                                onClicked: sessionView.log.clear()
+                                FluTooltip { visible: parent.hovered; text: qsTr("清除数据区数据") }
                             }
                         }
                     }
