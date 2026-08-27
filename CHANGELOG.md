@@ -5,6 +5,24 @@ All notable changes to ToolHub will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-08-27
+
+### Added
+- **多会话支持**（参考 CommMonitor/SerialTool 会话标签）:
+  - `serialport/session_manager.py`: SerialSessionManager + SerialSession，每会话独立 SerialWorker/RxLog/视图状态，会话序号不回收，关闭自动断开串口
+  - T_Serial 顶部 40px 工具栏: 页标题 + 会话标签（绿点=已连接、名称自动改为端口名、× 关闭）+ 新建按钮 + 全关后空状态引导
+  - `SerialCube_SerialSessionView.qml`: 会话级完整视图，StackLayout 保持实例存活（切换标签日志/设置不丢）
+- **设置面板折叠**: 面板右缘箭头按钮，200ms 动画折叠到 0 宽（数据区全宽），状态随会话保存
+- SerialWorker 新增 portName 属性（会话标签改名数据源）
+
+### Fixed
+- **设置行重叠**: SerialCube_SettingsRow 新增 narrow 模式（标签 72px 左列 + 控件区自适应），串口页窄面板全部行启用，彻底消除长标签与双控件的文字重叠
+- 打开串口后流控/数据位等参数正确传入（此前 set_params 参数顺序正确但窄面板控件宽度不足导致部分行不可见）
+
+### Verified
+- 双会话实测: 会话1 COM20 ↔ 会话2 COM21（同一虚拟串口对），会话2 发送 `MSG-FROM-com21-HELLO` → 会话1 日志 `14:18:25.224 [RX] MSG-FROM-com21-HELLO`（RX 20B·1包），互不串扰
+- 折叠/展开动画正常，折叠后日志保留
+
 ## [1.1.0] - 2026-08-27
 
 ### Added

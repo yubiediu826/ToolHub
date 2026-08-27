@@ -8,8 +8,7 @@ from PySide6.QtQml import QQmlApplicationEngine
 from FluentUI import FluentUI
 from FluentUI.FluLogger import LogSetup, Logger
 from ToolHub.imports import resource_rc as rc
-from ToolHub.serialport.serial_worker import SerialWorker
-from ToolHub.serialport.rx_log import RxLog
+from ToolHub.serialport.session_manager import SerialSessionManager
 
 
 def main():
@@ -32,12 +31,8 @@ def main():
             break
 
     engine = QQmlApplicationEngine()
-    serial_worker = SerialWorker()
-    serial_log = RxLog()
-    serial_worker.bytesReceived.connect(serial_log.on_rx)
-    serial_worker.bytesSent.connect(serial_log.on_tx)
-    engine.rootContext().setContextProperty("SerialWorker", serial_worker)
-    engine.rootContext().setContextProperty("SerialLog", serial_log)
+    session_manager = SerialSessionManager()
+    engine.rootContext().setContextProperty("SerialSessions", session_manager)
     FluentUI.registerTypes(engine)
     url = QUrl("qrc:/ToolHub/qml/App.qml")
     engine.load(url)

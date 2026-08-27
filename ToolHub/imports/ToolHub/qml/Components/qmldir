@@ -5,3 +5,5 @@ SerialCube_CardItem 1.0 SerialCube_CardItem.qml
 SerialCube_SettingsRow 1.0 SerialCube_SettingsRow.qml
 SerialCube_InfoRow 1.0 SerialCube_InfoRow.qml
 SerialCube_NavToggleHelper 1.0 SerialCube_NavToggleHelper.qml
+SerialCube_NavToggleHelper 1.0 SerialCube_NavToggleHelper.qml
+SerialCube_SerialSessionView 1.0 SerialCube_SerialSessionView.qml

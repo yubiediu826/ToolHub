@@ -17,6 +17,7 @@
         <file>ToolHub/qml/Components/SerialCube_SettingsRow.qml</file>
         <file>ToolHub/qml/Components/SerialCube_InfoRow.qml</file>
         <file>ToolHub/qml/Components/SerialCube_NavToggleHelper.qml</file>
+        <file>ToolHub/qml/Components/SerialCube_SerialSessionView.qml</file>
         <file>ToolHub/qml/page/T_Home.qml</file>
         <file>ToolHub/qml/page/T_Settings.qml</file>
         <file>ToolHub/qml/page/T_About.qml</file>

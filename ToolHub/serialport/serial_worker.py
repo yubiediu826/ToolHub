@@ -53,6 +53,7 @@ class SerialWorker(QObject):
         super().__init__(parent)
         self._opened = False
         self._local_echo = False
+        self._port_name = ""
         self._port: serial.Serial | None = None
         self._thread = None
         self._reader: _Reader | None = None
@@ -66,6 +67,10 @@ class SerialWorker(QObject):
     @Property(bool, notify=portOpenedChanged)
     def opened(self):
         return self._opened
+
+    @Property(str, notify=portOpenedChanged)
+    def portName(self):
+        return self._port_name
 
     @Property(bool)
     def localEcho(self):
@@ -99,6 +104,7 @@ class SerialWorker(QObject):
         except (serial.SerialException, OSError) as e:
             self.errorOccurred.emit(str(e))
             return
+        self._port_name = p["port"]
         import threading
         self._reader = _Reader(self._port)
         self._thread = threading.Thread(target=self._reader.run, daemon=True)
@@ -124,6 +130,7 @@ class SerialWorker(QObject):
         self._reader = None
         self._thread = None
         self._port = None
+        self._port_name = ""
         self._opened = False
         self.portOpenedChanged.emit()
 
