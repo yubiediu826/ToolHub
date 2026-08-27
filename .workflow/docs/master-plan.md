@@ -10,8 +10,8 @@
 
 ## 阶段 1：串口调试（v1.1.0，T_Serial 页）
 
-- `ToolHub/serial/serial_worker.py`：QThread 封装 pyserial（枚举/开关/读写/hex-text/定时循环发送），16ms 批量 emit。
-- `ToolHub/serial/rx_log.py`：接收缓冲 + hexdump/时间戳/收发着色。
+- `ToolHub/serialport/serial_worker.py`：QThread 封装 pyserial（枚举/开关/读写/hex-text/定时循环发送），16ms 批量 emit。
+- `ToolHub/serialport/rx_log.py`：接收缓冲 + hexdump/时间戳/收发着色。
 - QML 三区布局：参数卡（FluComboBox：端口/波特率 1200~2000000/数据位/校验/停止位/流控 + 连接按钮）、发送卡、日志区（暂停/清空/保存）。
 - 验收：真实串口对测收发；UI 走验收闭环。
 

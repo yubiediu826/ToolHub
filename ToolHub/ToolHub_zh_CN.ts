@@ -293,23 +293,242 @@
 <context>
     <name>T_Serial</name>
     <message>
-        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="17"/>
-        <source>串口监听</source>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="59"/>
+        <source>串口调试</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="18"/>
-        <source>Serial Monitor · 实时监视串口收发 · HEX / 文本自动滚屏</source>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="60"/>
+        <source>Serial Debug · 串口数据收发 · HEX/文本 · 日志打印</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="24"/>
-        <source>页面建设中</source>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="95"/>
+        <source>连接设置</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="25"/>
-        <source>后续版本会接入具体功能</source>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="100"/>
+        <source>串口</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="114"/>
+        <source>刷新端口列表</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="119"/>
+        <source>波特率</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="131"/>
+        <source>数据位</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="137"/>
+        <source>校验位</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="143"/>
+        <source>停止位</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="149"/>
+        <source>流控</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="157"/>
+        <source>关闭串口</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="157"/>
+        <source>打开串口</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="164"/>
+        <source>未选择串口</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="192"/>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="395"/>
+        <source>数据区</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="197"/>
+        <source>显示方式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="202"/>
+        <source>文本</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="207"/>
+        <source>字符编码</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="212"/>
+        <source>自动</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="217"/>
+        <source>自动换行</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="226"/>
+        <source>显示时间戳</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="241"/>
+        <source>时间</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="241"/>
+        <source>日期时间</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="247"/>
+        <source>时间分包</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="269"/>
+        <source>最大行数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="279"/>
+        <source>冻结显示</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="292"/>
+        <source>保存</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="295"/>
+        <source>日志已保存到 Downloads 目录</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="300"/>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="509"/>
+        <source>清空</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="318"/>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="470"/>
+        <source>发送区</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="323"/>
+        <source>发送</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="329"/>
+        <source>追加换行</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="335"/>
+        <source>无</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="339"/>
+        <source>定时发送</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="356"/>
+        <source>本地回显</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="396"/>
+        <source>收</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="397"/>
+        <source>发</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="446"/>
+        <source>暂无数据 · 打开串口后收发内容将显示在这里</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="480"/>
+        <source>每 %1ms 循环发送</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="492"/>
+        <source>输入要发送的内容（HEX 模式输入如 5A 01 02）</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="492"/>
+        <source>打开串口后可发送数据</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="502"/>
+        <source>历史</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="515"/>
+        <source>发 送</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="538"/>
+        <source>已连接 %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="538"/>
+        <source>未连接</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="543"/>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="548"/>
+        <source> 包 · </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="558"/>
+        <source>串口已打开 %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="imports/ToolHub/qml/page/T_Serial.qml" line="561"/>
+        <source>串口错误</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

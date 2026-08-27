@@ -15,7 +15,7 @@ ToolHub/                          ← 仓库根（git）
 │   │   ├── global/               ← NavModel/NavFooter 等 singleton
 │   │   ├── Components/           ← SerialCube_* 共享组件（前缀强制）
 │   │   └── page/                 ← T_*.qml 页面
-│   ├── serial/                   ← 串口域：serial_worker.py / rx_log.py
+│   ├── serialport/               ← 串口域：serial_worker.py / rx_log.py（禁止叫 serial/，会遮蔽 pyserial）
 │   ├── protocol/                 ← 协议域：tlv.py / modbus_rtu.py / framer.py
 │   ├── monitor/                  ← 监听域：bridge.py / session.py
 │   └── i18n 资源等

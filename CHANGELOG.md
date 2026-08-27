@@ -5,6 +5,23 @@ All notable changes to ToolHub will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-08-27
+
+### Added
+- **工作流规范体系** (`.workflow/`): AGENTS.md 硬约束 H1-H8、UI 设计规范 (WinUI 3 基准/语义色/字号层级/布局模板)、代码规范 (QML 只做展示/业务下沉 Python/线程模型)、UI 验收闭环 (草案→截图自查→交付评审)、设计原则、FluentUI 组件目录映射、总体实施计划 master-plan；4 项决策落档 decisions/
+- **串口调试 T_Serial 页** (参考 VOFA+ 布局 + SerialTool v1.7.4 功能):
+  - 左侧设置栏: 连接设置 (串口/波特率/数据位/校验位/停止位/流控 + 打开/关闭)、数据区设置 (显示方式 文本/HEX、字符编码 自动/UTF-8/GBK、自动换行、显示时间戳、时间分包 ms、最大行数、冻结显示)、发送区设置 (HEX 发送、追加换行 CR/LF/CRLF、定时发送 ms、本地回显)
+  - 右侧数据区: 等宽字体日志视图、A-/A+ 字号调节、自动吸底滚动、空态提示
+  - 右侧发送区: 多行输入、发送历史 (10 条)、清空、定时循环发送
+  - 底部状态栏: 连接状态灯、RX/TX 字节数·包数·速率实时统计
+- **串口后端** `ToolHub/serialport/` (包名不可用 serial/ 会遮蔽 pyserial):
+  - `serial_worker.py`: pyserial 线程读循环、参数配置、hex/text 发送、追加换行、本地回显、16ms 批量 Signal 上报
+  - `rx_log.py`: 时间分包聚合、文本/HEX 视图、自动/UTF-8/GBK 解码、时间戳模式、自动换行、最大行数裁剪、冻结显示、RX/TX 字节/包/速率统计、日志保存到 Downloads
+- git 仓库初始化 + .gitignore + 首次提交
+
+### Verified
+- COM20↔COM21 虚拟串口回环实测: HEX 发送 48 65 6C 6C 6F → 对端收到 `48 65 6c 6c 6f`，对端回发被记录为 RX，时间戳/方向/分包/统计正确
+
 ## [1.0.5] - 2026-08-26
 
 ### Fixed

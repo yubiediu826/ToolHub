@@ -52,6 +52,7 @@ class SerialWorker(QObject):
     def __init__(self, parent=None):
         super().__init__(parent)
         self._opened = False
+        self._local_echo = False
         self._port: serial.Serial | None = None
         self._thread = None
         self._reader: _Reader | None = None
@@ -66,9 +67,16 @@ class SerialWorker(QObject):
     def opened(self):
         return self._opened
 
-    @staticmethod
+    @Property(bool)
+    def localEcho(self):
+        return self._local_echo
+
+    @localEcho.setter
+    def localEcho(self, v: bool):
+        self._local_echo = v
+
     @Slot()
-    def list_ports():
+    def list_ports(self):
         return [f"{p.device} — {p.description}" for p in list_ports.comports()]
 
     @Slot(str, int, int, str, float, str)
@@ -119,12 +127,16 @@ class SerialWorker(QObject):
         self._opened = False
         self.portOpenedChanged.emit()
 
-    @Slot(str, bool)
-    def send(self, text, hex_mode):
+    @Slot(str, bool, int)
+    def send(self, text, hex_mode, eol=0):
+        """eol: 0=无 1=CR 2=LF 3=CRLF（仅文本模式生效）"""
         if not self._opened or not text:
             return
+        if not hex_mode:
+            suffix = {0: "", 1: "\r", 2: "\n", 3: "\r\n"}.get(int(eol), "")
+            text = text + suffix
         try:
-            data = (bytes.fromhex(text.replace(" ", "").replace(",", ""))
+            data = (bytes.fromhex(text.replace(" ", "").replace(",", "").replace("\r", "").replace("\n", ""))
                     if hex_mode else text.encode("utf-8", errors="replace"))
         except ValueError:
             self.errorOccurred.emit("HEX 输入格式无效")
@@ -132,6 +144,8 @@ class SerialWorker(QObject):
         try:
             self._port.write(data)
             self.bytesSent.emit(data)
+            if self._local_echo:
+                self.bytesReceived.emit(data)
         except (serial.SerialException, OSError) as e:
             self.errorOccurred.emit(str(e))
 
