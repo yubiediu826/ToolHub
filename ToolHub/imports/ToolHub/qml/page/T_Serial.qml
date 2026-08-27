@@ -35,7 +35,8 @@ FluPage {
     }
 
     function currentDevice() {
-        return portCombo.currentText.split(" — ")[0]
+        var t = portCombo.editText.length > 0 ? portCombo.editText : portCombo.currentText
+        return t.split(" — ")[0].trim()
     }
 
     function doSend() {
@@ -124,7 +125,7 @@ FluPage {
                                     width: 200
                                     editable: true
                                     model: [9600, 19200, 38400, 57600, 115200, 230400, 460800, 921600]
-                                    editText: "115200"
+                                    currentIndex: 4
                                 }
                             }
                             SerialCube_SettingsRow {

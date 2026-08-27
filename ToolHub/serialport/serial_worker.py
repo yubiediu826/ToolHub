@@ -75,7 +75,7 @@ class SerialWorker(QObject):
     def localEcho(self, v: bool):
         self._local_echo = v
 
-    @Slot()
+    @Slot(result=list)
     def list_ports(self):
         return [f"{p.device} — {p.description}" for p in list_ports.comports()]
 
