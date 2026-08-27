@@ -58,40 +58,10 @@ FluObject {
         FluPaneItem {
             id: item_tool_serial
             key: "tool_serial"
-            title: qsTr("串口监听")
+            title: qsTr("串口调试")
             url: "qrc:/ToolHub/qml/page/T_Serial.qml"
             onTap: {
                 // v7: 业务态 2 调 helper; 0/1 单纯 push (跟 Example ItemsOriginal 一样)
-                if (Settings.navMode === 2 && navModel.handleItemClick(this, toolExpander)) return
-                navView.push(url)
-            }
-        }
-        FluPaneItem {
-            id: item_tool_network
-            key: "tool_network"
-            title: qsTr("网络工具")
-            url: "qrc:/ToolHub/qml/page/T_Network.qml"
-            onTap: {
-                if (Settings.navMode === 2 && navModel.handleItemClick(this, toolExpander)) return
-                navView.push(url)
-            }
-        }
-        FluPaneItem {
-            id: item_tool_file
-            key: "tool_file"
-            title: qsTr("文件处理")
-            url: "qrc:/ToolHub/qml/page/T_File.qml"
-            onTap: {
-                if (Settings.navMode === 2 && navModel.handleItemClick(this, toolExpander)) return
-                navView.push(url)
-            }
-        }
-        FluPaneItem {
-            id: item_tool_data
-            key: "tool_data"
-            title: qsTr("数据分析")
-            url: "qrc:/ToolHub/qml/page/T_Data.qml"
-            onTap: {
                 if (Settings.navMode === 2 && navModel.handleItemClick(this, toolExpander)) return
                 navView.push(url)
             }

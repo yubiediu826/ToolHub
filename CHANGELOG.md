@@ -5,6 +5,14 @@ All notable changes to ToolHub will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2026-08-27
+
+### Changed
+- **导航精简**: 侧边栏工具组只保留「串口调试」（原"串口监听"统一改名），移除网络/文件/数据三项及其页面与路由；首页「最近添加」只保留串口调试卡片并接上跳转，「推荐工具」整节移除
+- **折叠箭头改悬浮**: 从布局槽移到面板右缘悬浮（z 覆盖），消除面板与数据区之间的空隙；折叠后贴左缘
+- **工具栏间距**: 串口页顶部边距 16→8px，与上方标题栏更紧凑
+- **新建会话按钮**: 固定 32x32 并垂直居中，与会话标签水平对齐
+
 ## [1.2.0] - 2026-08-27
 
 ### Added

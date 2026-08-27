@@ -53,7 +53,7 @@ Item {
 
     RowLayout {
         anchors.fill: parent
-        spacing: 12
+        spacing: 0
 
         // ==================== 左侧设置面板（可折叠） ====================
         Item {
@@ -391,19 +391,11 @@ Item {
             }
         }
 
-        // 折叠/展开箭头（贴面板右缘，垂直居中）
-        FluIconButton {
-            Layout.alignment: Qt.AlignVCenter
-            iconSource: session.panelCollapsed ? FluentIcons.ChevronRight : FluentIcons.ChevronLeft
-            iconSize: 14
-            onClicked: session.panelCollapsed = !session.panelCollapsed
-            FluTooltip { visible: parent.hovered; text: qsTr("折叠/展开设置面板") }
-        }
-
         // ==================== 右侧：数据区 + 发送区 ====================
         ColumnLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.leftMargin: session.panelCollapsed ? 8 : 12
             spacing: 12
 
             // ---- 数据区 ----
@@ -573,6 +565,17 @@ Item {
                 Item { Layout.fillWidth: true }
             }
         }
+    }
+
+    // 折叠/展开箭头：悬浮在面板右缘（折叠后贴左缘），不占布局槽
+    FluIconButton {
+        z: 10
+        x: session.panelCollapsed ? 0 : panelShell.width - 14
+        anchors.verticalCenter: parent.verticalCenter
+        iconSource: session.panelCollapsed ? FluentIcons.ChevronRight : FluentIcons.ChevronLeft
+        iconSize: 14
+        onClicked: session.panelCollapsed = !session.panelCollapsed
+        FluTooltip { visible: parent.hovered; text: qsTr("折叠/展开设置面板") }
     }
 
     Connections {

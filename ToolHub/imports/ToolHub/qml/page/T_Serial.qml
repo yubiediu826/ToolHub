@@ -22,7 +22,10 @@ FluPage {
 
     ColumnLayout {
         anchors.fill: parent
-        anchors.margins: 16
+        anchors.leftMargin: 16
+        anchors.rightMargin: 16
+        anchors.topMargin: 8
+        anchors.bottomMargin: 8
         spacing: 8
 
         // ==================== 顶部工具栏（标题 + 会话标签） ====================
@@ -93,8 +96,12 @@ FluPage {
             }
 
             FluIconButton {
+                id: newSessionButton
+                Layout.preferredWidth: 32
+                Layout.preferredHeight: 32
+                Layout.alignment: Qt.AlignVCenter
                 iconSource: FluentIcons.Add
-                iconSize: 16
+                iconSize: 14
                 onClicked: SerialSessions.createSession()
                 FluTooltip { visible: parent.hovered; text: qsTr("新建会话") }
             }

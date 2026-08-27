@@ -72,6 +72,7 @@ FluScrollablePage {
         Layout.topMargin: 12
         Layout.leftMargin: 20
         Layout.rightMargin: 20
+        Layout.bottomMargin: 30
         columns: 2
         columnSpacing: 20
         rowSpacing: 20
@@ -79,96 +80,13 @@ FluScrollablePage {
         SerialCube_CardItem {
             Layout.fillWidth: true
             Layout.preferredHeight: 130
-            title: qsTr("串口监听工具")
-            desc: qsTr("实时监视串口收发，支持 HEX / 文本切换，自动滚屏，HEX 收发一应俱全。")
+            title: qsTr("串口调试")
+            desc: qsTr("串口数据收发，HEX / 文本切换，多会话，时间分包与日志统计。")
             icon: FluentIcons.Connect
-            onClicked: { }
-        }
-        SerialCube_CardItem {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 130
-            title: qsTr("网络调试助手")
-            desc: qsTr("TCP / UDP 客户端 + 服务端，多会话管理，协议解析器。")
-            icon: FluentIcons.Globe
-            onClicked: { }
-        }
-        SerialCube_CardItem {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 130
-            title: qsTr("文件批量处理")
-            desc: qsTr("重命名 / 转换格式 / 提取元数据，拖拽即用。")
-            icon: FluentIcons.Document
-            onClicked: { }
-        }
-        SerialCube_CardItem {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 130
-            title: qsTr("数据分析面板")
-            desc: qsTr("CSV / JSON 导入，图表 + 透视表，导出报告。")
-            icon: FluentIcons.AreaChart
-            onClicked: { }
-        }
-    }
-
-    // "推荐工具" section
-    FluText {
-        Layout.topMargin: 30
-        Layout.leftMargin: 20
-        text: qsTr("推荐工具")
-        font: FluTextStyle.Title
-    }
-
-    GridLayout {
-        Layout.fillWidth: true
-        Layout.topMargin: 12
-        Layout.leftMargin: 20
-        Layout.rightMargin: 20
-        Layout.bottomMargin: 30
-        columns: 3
-        columnSpacing: 20
-        rowSpacing: 20
-
-        SerialCube_CardItem {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 100
-            title: qsTr("剪贴板历史")
-            icon: FluentIcons.History
-            onClicked: { }
-        }
-        SerialCube_CardItem {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 100
-            title: qsTr("屏幕取色器")
-            icon: FluentIcons.Color
-            onClicked: { }
-        }
-        SerialCube_CardItem {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 100
-            title: qsTr("JSON 格式化")
-            icon: FluentIcons.Code
-            onClicked: { }
-        }
-        SerialCube_CardItem {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 100
-            title: qsTr("二维码生成")
-            icon: FluentIcons.QRCode
-            onClicked: { }
-        }
-        SerialCube_CardItem {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 100
-            title: qsTr("时间戳转换")
-            icon: FluentIcons.History
-            onClicked: { }
-        }
-        SerialCube_CardItem {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 100
-            title: qsTr("编码转换")
-            icon: FluentIcons.Page
-            onClicked: { }
+            onClicked: {
+                if (NavModel.navView)
+                    NavModel.navView.push("qrc:/ToolHub/qml/page/T_Serial.qml")
+            }
         }
     }
 }

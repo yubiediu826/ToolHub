@@ -22,8 +22,5 @@
         <file>ToolHub/qml/page/T_Settings.qml</file>
         <file>ToolHub/qml/page/T_About.qml</file>
         <file>ToolHub/qml/page/T_Serial.qml</file>
-        <file>ToolHub/qml/page/T_Network.qml</file>
-        <file>ToolHub/qml/page/T_File.qml</file>
-        <file>ToolHub/qml/page/T_Data.qml</file>
     </qresource>
 </RCC>
