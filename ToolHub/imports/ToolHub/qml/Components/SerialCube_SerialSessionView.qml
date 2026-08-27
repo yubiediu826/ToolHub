@@ -22,8 +22,19 @@ Item {
     readonly property int defaultLogFontPx: FluTextStyle.Body.pixelSize
 
     Component.onCompleted: {
-        sessionView.applyThemeColors()
         refreshPorts()
+        applyThemeColors()
+        // 生命周期兜底：视图创建早于会话绑定时补注一次
+        applyThemeTimer.restart()
+    }
+
+    onSessionChanged: applyThemeColors()
+
+    Timer {
+        id: applyThemeTimer
+        interval: 500
+        repeat: false
+        onTriggered: sessionView.applyThemeColors()
     }
 
     function applyThemeColors() {
@@ -442,10 +453,18 @@ Item {
                             FluButton {
                                 text: "A-"
                                 onClicked: sessionView.logFontPx = Math.max(sessionView.logFontPx - 1, 10)
+                                FluTooltip { visible: parent.hovered; text: qsTr("缩小字体") }
+                            }
+                            FluButton {
+                                Layout.preferredWidth: 52
+                                text: sessionView.logFontPx + ""
+                                onClicked: sessionView.logFontPx = sessionView.defaultLogFontPx
+                                FluTooltip { visible: parent.hovered; text: qsTr("当前字号，点击恢复默认 %1").arg(sessionView.defaultLogFontPx) }
                             }
                             FluButton {
                                 text: "A+"
                                 onClicked: sessionView.logFontPx = Math.min(sessionView.logFontPx + 1, 28)
+                                FluTooltip { visible: parent.hovered; text: qsTr("放大字体") }
                             }
                         }
                     }
@@ -474,7 +493,7 @@ Item {
                             font.pixelSize: sessionView.logFontPx
                             wrapMode: Text.WrapAnywhere
                             color: FluTheme.fontPrimaryColor
-                            textFormat: Text.PlainText
+                            textFormat: Text.StyledText
                         }
                         ScrollBar.vertical: FluScrollBar { }
 
