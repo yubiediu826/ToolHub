@@ -95,10 +95,13 @@ class SerialSessionManager(QObject):
         self.activeChanged.emit()
         return session
 
-    @Slot(int)
-    def closeSession(self, index: int):
+    @Slot(int, result=bool)
+    def closeSession(self, index: int) -> bool:
+        """关闭会话；最后一个会话不允许关闭，返回 False 由 UI 提示。"""
         if not (0 <= index < len(self._sessions)):
-            return
+            return False
+        if len(self._sessions) <= 1:
+            return False
         session = self._sessions.pop(index)
         session.closePort()
         session.setParent(None)
@@ -111,6 +114,7 @@ class SerialSessionManager(QObject):
             self._active = -1
         self.sessionsChanged.emit()
         self.activeChanged.emit()
+        return True
 
     @Slot()
     def ensureAtLeastOne(self):

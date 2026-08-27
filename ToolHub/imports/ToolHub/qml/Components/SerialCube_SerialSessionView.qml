@@ -19,6 +19,24 @@ Item {
     // 发送历史（最多 10 条，随会话保存在视图实例内）
     property var sendHistory: []
     property int logFontPx: FluTextStyle.Body.pixelSize
+    readonly property int defaultLogFontPx: FluTextStyle.Body.pixelSize
+
+    Component.onCompleted: {
+        sessionView.applyThemeColors()
+        refreshPorts()
+    }
+
+    function applyThemeColors() {
+        if (!session) return
+        // RX 绿 / TX 蓝：颜色由主题注入 Python，数据内容保持前景色
+        session.log.rxColor = FluColors.Green.normal.toString()
+        session.log.txColor = FluTheme.primaryColor.toString()
+    }
+
+    Connections {
+        target: FluTheme
+        function onPrimaryColorChanged() { sessionView.applyThemeColors() }
+    }
 
     function fmtBytes(n) {
         if (n >= 1048576) return (n / 1048576).toFixed(2) + " MB"
@@ -49,7 +67,6 @@ Item {
         historyCombo.model = sendHistory
     }
 
-    Component.onCompleted: refreshPorts()
 
     RowLayout {
         anchors.fill: parent
@@ -74,6 +91,7 @@ Item {
                 contentWidth: width
                 contentHeight: leftCol.implicitHeight
                 boundsBehavior: Flickable.StopAtBounds
+                HoverHandler { id: panelHover }
 
                 ColumnLayout {
                     id: leftCol
@@ -387,7 +405,10 @@ Item {
                     }
                 }
 
-                ScrollBar.vertical: FluScrollBar { }
+                ScrollBar.vertical: FluScrollBar {
+                    opacity: panelHover.hovered ? 1 : 0
+                    Behavior on opacity { NumberAnimation { duration: 150 } }
+                }
             }
         }
 

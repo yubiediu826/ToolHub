@@ -5,6 +5,18 @@ All notable changes to ToolHub will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.2] - 2026-08-27
+
+### Added
+- **日志收发着色**: [TX] 标签主题蓝 / [RX] 标签绿色（颜色由 QML 主题注入 Python `rxColor`/`txColor`），数据内容保持前景色；日志视图改用 StyledText 渲染（条目间 `<br>`、内容 HTML 转义保留空格缩进），保存文件仍为纯文本
+- **字号三钮组**: 数据区 A- / 当前字号（点击恢复默认）/ A+，当前字号实时显示并带提示
+- **会话保护**: 最后一个会话不允许关闭（closeSession 返回 False + Toast 提示"至少保留一个会话"）
+
+### Fixed
+- **侧边栏滚动条**: 默认隐藏，鼠标移入面板才渐显（150ms）
+- **工具栏对齐**: 串口页顶部边距归零，工具栏与侧栏搜索图标同一水平线（元素坐标实测对齐）
+- **首页卡片宽度**: 单卡片加最大宽度限制不再占满整行
+
 ## [1.2.1] - 2026-08-27
 
 ### Changed

@@ -24,7 +24,7 @@ FluPage {
         anchors.fill: parent
         anchors.leftMargin: 16
         anchors.rightMargin: 16
-        anchors.topMargin: 8
+        anchors.topMargin: 0
         anchors.bottomMargin: 8
         spacing: 8
 
@@ -80,7 +80,10 @@ FluPage {
                             Layout.preferredHeight: 20
                             iconSize: 10
                             iconSource: FluentIcons.ChromeClose
-                            onClicked: SerialSessions.closeSession(sessionTab.index)
+                            onClicked: {
+                                if (!SerialSessions.closeSession(sessionTab.index))
+                                    showWarning(qsTr("至少保留一个会话"))
+                            }
                             FluTooltip { visible: parent.hovered; text: qsTr("关闭会话") }
                         }
                     }

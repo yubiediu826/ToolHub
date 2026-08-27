@@ -79,6 +79,7 @@ FluScrollablePage {
 
         SerialCube_CardItem {
             Layout.fillWidth: true
+            Layout.maximumWidth: 430
             Layout.preferredHeight: 130
             title: qsTr("串口调试")
             desc: qsTr("串口数据收发，HEX / 文本切换，多会话，时间分包与日志统计。")
