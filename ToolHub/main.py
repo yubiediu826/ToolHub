@@ -9,6 +9,7 @@ from FluentUI import FluentUI
 from FluentUI.FluLogger import LogSetup, Logger
 from ToolHub.imports import resource_rc as rc
 from ToolHub.serialport.session_manager import SerialSessionManager
+from ToolHub.protocol.engine import ProtocolEngine
 
 
 def main():
@@ -32,7 +33,9 @@ def main():
 
     engine = QQmlApplicationEngine()
     session_manager = SerialSessionManager()
+    protocol_engine = ProtocolEngine(session_manager)
     engine.rootContext().setContextProperty("SerialSessions", session_manager)
+    engine.rootContext().setContextProperty("ProtocolTool", protocol_engine)
     FluentUI.registerTypes(engine)
     url = QUrl("qrc:/ToolHub/qml/App.qml")
     engine.load(url)

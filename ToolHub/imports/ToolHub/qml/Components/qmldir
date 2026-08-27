@@ -7,3 +7,7 @@ SerialCube_InfoRow 1.0 SerialCube_InfoRow.qml
 SerialCube_NavToggleHelper 1.0 SerialCube_NavToggleHelper.qml
 SerialCube_NavToggleHelper 1.0 SerialCube_NavToggleHelper.qml
 SerialCube_SerialSessionView 1.0 SerialCube_SerialSessionView.qml
+SerialCube_DashNumber 1.0 SerialCube_DashNumber.qml
+SerialCube_DashProgress 1.0 SerialCube_DashProgress.qml
+SerialCube_DashStatus 1.0 SerialCube_DashStatus.qml
+SerialCube_DashTiles 1.0 SerialCube_DashTiles.qml

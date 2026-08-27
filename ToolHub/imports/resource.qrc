@@ -18,9 +18,14 @@
         <file>ToolHub/qml/Components/SerialCube_InfoRow.qml</file>
         <file>ToolHub/qml/Components/SerialCube_NavToggleHelper.qml</file>
         <file>ToolHub/qml/Components/SerialCube_SerialSessionView.qml</file>
+        <file>ToolHub/qml/Components/SerialCube_DashNumber.qml</file>
+        <file>ToolHub/qml/Components/SerialCube_DashProgress.qml</file>
+        <file>ToolHub/qml/Components/SerialCube_DashStatus.qml</file>
+        <file>ToolHub/qml/Components/SerialCube_DashTiles.qml</file>
         <file>ToolHub/qml/page/T_Home.qml</file>
         <file>ToolHub/qml/page/T_Settings.qml</file>
         <file>ToolHub/qml/page/T_About.qml</file>
         <file>ToolHub/qml/page/T_Serial.qml</file>
+        <file>ToolHub/qml/page/T_Protocol.qml</file>
     </qresource>
 </RCC>

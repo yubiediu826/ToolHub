@@ -56,6 +56,16 @@ FluObject {
         // expander 父项点击行为在库 FluNavigationView.qml:228-244(决策: 2026-08-26)
 
         FluPaneItem {
+            id: item_tool_protocol
+            key: "tool_protocol"
+            title: qsTr("协议解析")
+            url: "qrc:/ToolHub/qml/page/T_Protocol.qml"
+            onTap: {
+                if (Settings.navMode === 2 && navModel.handleItemClick(this, toolExpander)) return
+                navView.push(url)
+            }
+        }
+        FluPaneItem {
             id: item_tool_serial
             key: "tool_serial"
             title: qsTr("串口调试")

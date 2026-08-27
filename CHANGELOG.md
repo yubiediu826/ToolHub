@@ -5,6 +5,27 @@ All notable changes to ToolHub will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-08-27
+
+### Added
+- **协议解析器引擎** `ToolHub/protocol/`（通用帧描述+字段表驱动，11 项单测全绿）:
+  - `checksums.py`: CRC16-Modbus 查表法 / 扣帧头加和校验 / XOR
+  - `profile.py`: Profile 模型 + JSON 序列化 + 仪表盘卡片 schema 派生
+  - `framer.py`: 流式分帧器（半包/粘包/垃圾前缀/坏 CRC 不断机）
+  - `decoder.py`: 字段表解码（u8-u32/i-宽度、ascii、数组、bits 位图、枚举映射、无效值 0xFFFF、scale 换算）
+  - `presets.py`: **BMS-OFO**（帧头 TX5A/RX55 + CRC16 命令 01-16）与 **EMS-OFO**（AAAA 帧头 + 加和校验命令 E1-ED）两份预设，字段表逆向自两家上位机 Form1.cs
+- **协议解析页 T_Protocol**（独立界面，新导航项）:
+  - 工具栏: 预设选择 / 绑定串口调试活动会话 / 启动-停止轮询（300ms 节拍顺序发查询帧）
+  - 左侧: 协议档案摘要 + 数据新鲜度指示 + 轮询命令 + 清空日志
+  - 右侧: 仪表盘卡片栅格（按字段 card 提示自动生成）+ 解析日志（hexdump + 键值行）
+- **仪表盘卡片组件五类**: DashNumber（数值）/ DashProgress（SOC 等进度）/ DashStatus（位图 LED 组）/ DashTiles（单体电压等瓦片栅格，最高红最低绿高亮）
+- 离线灰态: 2.5s 无合法帧自动变灰（对应设备 retry>5 离线语义）
+
+### Verified
+- 引擎单测 11/11（CRC 经典向量、半包/粘包/垃圾前缀、坏 CRC 丢弃、SOC/温度无效值/单体电压 20 点/位图解码、查询帧构造闭环）
+- Qt 层管道冒烟: 构造 EMS 0xE2 帧 → 会话分帧 → 解码 → SOC=87/电流 5A/位图"放电高温,短路"/单体电压 20 点全部正确
+- UI: 协议解析页渲染成功，BMS-OFO 预设 25 张卡片自动生成
+
 ## [1.2.2] - 2026-08-27
 
 ### Added

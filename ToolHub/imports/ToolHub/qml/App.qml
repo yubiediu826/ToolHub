@@ -14,7 +14,8 @@ FluLauncher {
             "/home": "qrc:/ToolHub/qml/page/T_Home.qml",
             "/settings": "qrc:/ToolHub/qml/page/T_Settings.qml",
             "/about": "qrc:/ToolHub/qml/page/T_About.qml",
-            "/tool/serial": "qrc:/ToolHub/qml/page/T_Serial.qml"
+            "/tool/serial": "qrc:/ToolHub/qml/page/T_Serial.qml",
+            "/tool/protocol": "qrc:/ToolHub/qml/page/T_Protocol.qml"
         }
         FluRouter.navigate("/")
     }
